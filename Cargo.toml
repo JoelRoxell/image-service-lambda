@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+	"upload-img",
+	"get-img",
+	"shared",
+	"transformer"
+]
