@@ -1,0 +1,38 @@
+[package]
+name = "image-service"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+aws-config = "0.51.0"
+aws-sdk-s3 = "0.21.0"
+aws-sdk-dynamodb = "0.21.0"
+aws_lambda_events = { version="0.7" }
+lambda_http = { version = "0.7" }
+lambda_runtime = "0.7"
+serde = "1.0.142"
+serde_json = "1.0.85"
+tokio = { version = "1", features = ["macros"] }
+tracing = { version = "0.1", features = ["log"] }
+tracing-subscriber = { version = "0.3", default-features = false, features = ["fmt"] }
+shared = { path="../shared" }
+image = "0.24.5"
+aws-smithy-http = "0.51.0"
+sha1 = "0.10.5"
+uuid = { version = "1.2.2", features = ["v4", "fast-rng"] }
+
+[[bin]]
+name = "transform-img"
+path = "src/transform.rs"
+
+[[bin]]
+name = "transform-s3"
+path = "src/transform-s3.rs"
+
+[[bin]]
+name = "upload-img"
+path = "src/get-upload-uri.rs"
+
+
